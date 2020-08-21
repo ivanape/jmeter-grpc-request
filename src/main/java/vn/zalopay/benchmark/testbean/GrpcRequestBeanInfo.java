@@ -16,7 +16,7 @@ public class GrpcRequestBeanInfo extends BeanInfoSupport {
     public GrpcRequestBeanInfo() {
         super(GrpcRequest.class);
 
-        createPropertyGroup("serverInfoGroup", new String[]{"HOST_PORT", "FULL_METHOD", "TLS"});
+        createPropertyGroup("serverInfoGroup", new String[]{"HOST_PORT", "FULL_METHOD", "TLS", "JWT_TOKEN"});
         createPropertyGroup("requestInfoGroup", new String[]{"PROTO_FOLDER", "REQUEST_FILE", "DEADLINE", "REQUEST_JSON"});
 
         PropertyDescriptor props = property("REQUEST_JSON", TypeEditor.TextAreaEditor);
@@ -31,6 +31,7 @@ public class GrpcRequestBeanInfo extends BeanInfoSupport {
         setProp(props, "PROTO_FOLDER", "");
         setProp(props, "REQUEST_FILE", "");
         setProp(props, "DEADLINE", 0L);
+        setProp(props, "JWT_TOKEN", "");
     }
 
 }

@@ -39,7 +39,7 @@ public class GrpcRequest extends AbstractSampler implements TestBean {
         res.setSamplerData(req);
         res.sampleStart();
         try {
-            DynamicMessage resp = clientCaller.call(DEADLINE);
+            DynamicMessage resp = clientCaller.call(DEADLINE, JWT_TOKEN);
 
             res.sampleEnd();
             res.setSuccessful(true);
@@ -81,6 +81,9 @@ public class GrpcRequest extends AbstractSampler implements TestBean {
     @Getter
     @Setter
     private String REQUEST_JSON = "";
+    @Getter
+    @Setter
+    private String JWT_TOKEN = "";
     @Getter
     @Setter
     private boolean TLS = Boolean.FALSE;
